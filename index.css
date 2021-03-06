@@ -1,0 +1,408 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+}
+#main-container{
+    display: flex;
+}
+#sidebar{
+    position: fixed;
+    width: 250px;
+    min-height: 100vh;
+    background-color: #F6F2E6;
+    padding: 30px;
+    box-sizing: border-box;
+}
+/*Menu Section*/
+#menu-section{
+    margin-top: 5px;
+}
+.menu-items{
+    display: inline-block;
+    margin: 4px 0;
+    padding-left: 3px;
+    color: #163730;
+    cursor: pointer;
+}
+.menu-items i {
+    margin-right: 16px;
+}
+/*Filter Section*/
+#filter-section{
+    margin-top: 25px;
+}
+/* Filter Item*/
+.filter-item {
+    display: inline-block;
+    position: relative;
+    padding-left: 35px;
+    cursor: pointer;
+    user-select: none;
+}
+/* Hide the browser's default checkbox */
+.filter-item input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+/* Create a custom checkbox */
+.checkmark {
+    position: absolute;
+    top: 2px;
+    left: 0;
+    height: 15px;
+    width: 15px;
+    border: 2px solid #FB8E85;
+}
+/*Hover*/
+.filter-item:hover input ~ .checkmark{
+    background-color: #FB8E85;
+}
+.filter-item:hover {
+    color: #FB8E85;
+}
+/*Checked*/
+.filter-item input:checked ~ .checkmark{
+    background-color: #FB8E85;
+}
+.filter-item input:checked ~ .label-text{
+    color: #FB8E85;
+}
+/* Create the checkmark*/
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+/* Style the checkmark/indicator */
+.filter-item .checkmark:after {
+    left: 5px;
+    top: 2px;
+    width: 4px;
+    height: 7px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+/* Show the checkmark when checked */
+.filter-item input:checked ~ .checkmark:after {
+    display: block;
+}
+/*Second Filter Section*/
+.filter-item{
+    margin: 4px 0;
+}
+.filter-item:nth-child(5){
+    margin-top: 25px;
+}
+.filter-item:nth-child(n+5) .checkmark{
+    border: 2px solid #55CCAE;
+}
+/*Hover*/
+.filter-item:nth-child(n+5):hover input ~ .checkmark{
+    background-color: #55CCAE;
+}
+.filter-item:nth-child(n+5):hover .label-text {
+    color: #55CCAE;
+}
+/*Checked*/
+.filter-item:nth-child(n+5) input:checked ~ .checkmark{
+    background-color: #55CCAE;
+}
+.filter-item:nth-child(n+5) input:checked ~ .label-text{
+    color: #55CCAE;
+}
+/*Add Button*/
+#add-button{
+    margin-top: 35px;
+    background-color: #FF4E48;
+    border: 0;
+    color: #fff;
+    padding: 15px 16px;
+    box-sizing: border-box;
+    border-top-right-radius: 12px;
+    border-bottom-right-radius: 12px;
+    border-bottom-left-radius: 12px;
+    box-shadow: 2px 2px 4px #999;
+    cursor: pointer;
+}
+/*Tasks Section*/
+#tasks-section{
+    margin-left: 250px;
+    width: calc(100% - 270px - 20%);
+    min-height: 100vh;
+    background-color: #163631;
+    color: #fff;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+#tasks-section > h1 {
+    margin: 30px;
+    font-size: 30px;
+    margin-bottom: 0;
+    letter-spacing: 2.0px;
+}
+#task-tab-wrapper {
+    display:flex;
+    border-bottom: 1px solid #4F7870;
+    justify-content: space-between;
+    align-items: center;
+    color: rgba(255, 255, 255, 0.7);
+}
+.task-tab{
+    width: 25%;
+    font-size: 18px;
+    margin-top: 20px;
+    padding-bottom: 40px;
+    text-align: center;
+    cursor: pointer;
+}
+.task-tab.active{
+    color: #E84C45;
+    border-bottom: 2px solid #E84C45;
+}
+.task-tab span{
+    background-color: #2C574E;
+    font-size: 14px;
+    padding: 5px 16px;
+    font-weight: 600;
+    border-radius: 20px;
+    margin-right: 15px;
+    color: rgba(255, 255, 255, 0.7);
+}
+#todo-lists{
+    margin-top: 30px;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+#upcoming-tasks {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 25px;
+    border-bottom: 1px solid #4F7870;
+    padding-bottom: 40px;
+    margin-bottom: 30px;
+    font-size: 20px;
+    color: #fff;
+}
+#upcoming-tasks a{
+    letter-spacing: 6px;
+    font-weight: 900;
+    text-decoration: none;
+    color: #fff;
+    cursor: pointer;
+}
+#upcoming-tasks-lists{
+    content: "";
+}
+.todo-item{
+    display: flex;
+    justify-content: space-between;
+    padding: 13px 0;
+}
+/* Filter Item*/
+.todo-checkbox {
+    display: inline-block;
+    position: relative;
+    padding-left: 35px;
+    cursor: pointer;
+    user-select: none;
+}
+/* Hide the browser's default checkbox */
+.todo-checkbox input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+/* Create a custom checkbox */
+.todo-checkmark {
+    position: absolute;
+    top: 2px;
+    left: 0;
+    height: 15px;
+    width: 15px;
+    border: 2px solid #395651;
+    border-radius: 4px;
+}
+.todo-checkbox .todo-label-text{
+    color: #517C75;
+    font-weight: 600;
+}
+/*Hover*/
+.todo-checkbox:hover input ~ .todo-checkmark{
+    border: 2px solid #FF4E48;
+}
+
+/*Checked*/
+.todo-checkbox input:checked ~ .todo-checkmark{
+    background-color: #FF4E48;
+    border: 2px solid #FF4E48;
+    box-shadow: 0px 2px 2px #FF4E48;
+}
+/* Create the checkmark*/
+.todo-checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+/* Style the checkmark/indicator */
+.todo-checkbox .todo-checkmark:after {
+    left: 5px;
+    top: 2px;
+    width: 4px;
+    height: 7px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+/* Show the checkmark when checked */
+.todo-checkbox input:checked ~ .todo-checkmark:after {
+    display: block;
+}
+.todo-button {
+    width: 100px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    border-radius: 20px;
+    padding: 9px 10px;
+}
+.todo-button.approved {
+    background-color: #01C969;
+    color: rgba(198,243,222,1)
+}
+.todo-button.in-progress {
+    background-color:#553536;
+    color: rgba(213,69,34,1);
+}
+.todo-button.in-review {
+    background-color:#554835;
+    color: rgb(242,175,6,1);
+}
+.todo-button.waiting {
+    background-color:#1A423A;
+    color: rgba(158,174,174,1);
+}
+/*Meeting Section*/
+#meeting-section{
+    width: 25%;
+    margin-bottom: 30px;
+    min-height: 100vh;
+    background-color: #FFFCF9;
+    padding: 30px 20px;
+}
+#meeting-section #meeting-schedule {
+    margin-top: 23px;
+    font-size: 18px;
+    margin-bottom: 0;
+    color: #304C47;
+    letter-spacing: 1px;
+}
+#user-info-wrapper {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+#user-info-wrapper > i {
+    color: #183932;
+    font-size: 20px;
+}
+#notif-count{
+    width: 45px;
+    background-color: #E6A389;
+    padding: 8px;
+    box-sizing: border-box;
+    text-align: center;
+    border-radius: 13px;
+    font-size: 18px;
+    font-weight: 500;
+    margin-left: 30px;
+    box-shadow: 2px 2px 4px #999;
+    color: #fff;
+}
+.meeting-member{
+    font-size: 12px;
+    background-color: #F0F7FF;
+    padding: 10px 15px;
+    border-radius: 20px;
+    box-shadow: 0px 1px 5px #999;
+}
+.meeting-member i{
+    margin-right: 7px;
+}
+.image-wrapper{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.meeting-card{
+    padding: 16px 24px;
+    box-sizing: border-box;
+    background-color: #FFF1D6;
+    border-radius: 16px;
+    margin-top: 24px;
+}
+.user-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    margin-right: 8px;
+}
+#time-menu-wrapper{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+#time-menu-wrapper i {
+    font-size: 15px;
+    cursor: pointer;
+}
+.meeting-timing {
+    font-size: 12px;
+    margin-top: 10px;
+    color: #756A51;
+}
+.meeting-title {
+    font-size: 16px;
+    color: #756A51;
+    font-weight: 500;
+    margin-top: 10px;
+    margin-bottom: 25px;
+    font-weight: 600;
+}
+.meeting-card:nth-child(4n + 1) {
+    background-color: #FFF1D6;
+    color: #756A51;
+}
+
+.meeting-card:nth-child(4n + 2) {
+    background-color: #D1E5FE;
+    color: #506573;
+}
+
+.meeting-card:nth-child(4n + 3) {
+    background-color: #FFD8D9;
+    color: #8E6969;
+}
+
+.meeting-card:nth-child(4n + 4) {
+    background-color: #D8FFE2;
+    color: #70937F;
+}
+
+.meeting-card:nth-child(4n + 2) .meeting-timing, .meeting-card:nth-child(4n + 2) .meeting-title {
+    color: #506573;
+}
+
+.meeting-card:nth-child(4n + 3) .meeting-timing, .meeting-card:nth-child(4n + 3) .meeting-title {
+    color: #8E6969;
+}
+
+.meeting-card:nth-child(4n + 4) .meeting-timing, .meeting-card:nth-child(4n + 4) .meeting-title {
+    color: #70937F;
+}
